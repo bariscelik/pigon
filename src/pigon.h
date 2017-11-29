@@ -5,7 +5,6 @@
 
 namespace Pigon {
 
-
 class PIGONSHARED_EXPORT Pigon
 {
 

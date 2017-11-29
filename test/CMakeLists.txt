@@ -16,4 +16,7 @@ include_directories(${PIGON_INCLUDE_DIR})
 add_executable(${PROJECT_NAME} "main.cpp")
 add_test(${PROJECT_NAME} COMMAND ${PROJECT_NAME})
 
+FILE(GLOB_RECURSE LibFiles "*.h")
+add_custom_target(headers SOURCES ${LibFiles})
+
 target_link_libraries(${PROJECT_NAME} ${PIGON_LIBRARY} gtest gmock)
