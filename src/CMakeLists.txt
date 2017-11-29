@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_INSTALL_PREFIX "./")
+
+project(Pigon)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+
+add_library(${PROJECT_NAME} SHARED "pigon.cpp" "matrix.cpp" pigon.rc)
+
+#install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "../build/test/")
+
+install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "../../build/test/")
