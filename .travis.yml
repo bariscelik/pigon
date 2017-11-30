@@ -8,6 +8,6 @@ env:
   
 script:
   - cd src
-  - cmake --build . --target install -DCMAKE_BUILD_TYPE=Debug
+  - cmake --build . --target install
   - cd ../build/pigon/
   - make
