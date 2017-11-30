@@ -6,8 +6,8 @@ Pigon is contains some tools for mathematics and physics. Programming principle 
 
 ## A Quick Example
 ```cpp
-Matrix<float> m = {{2,5},
-                   {3,7}};
+Matrix<float> m = { {2,5},
+                    {3,7} };
 ```
 
 ## Features
@@ -55,9 +55,9 @@ It is possible to carry out an initialization in two ways:
 #### 1. Initializer List
 ```cpp
 // initialize a 3x3 matrix with initializer list
-Matrix<float> m = {{1, 3, 5},
-                   {2, 5, 6},
-                   {4, 8, 7}};
+Matrix<float> m = { {1, 3, 5},
+                    {2, 5, 6},
+                    {4, 8, 7} };
 ```
 #### 2. With Constructor
 ```cpp
