@@ -1,7 +1,7 @@
-# Pigon - scientific toolbox
 Pigon is an open source C++ library for scientific purposes
 
-[TOC]
+* TOC
+{:toc}
 
 # Introduction
 
