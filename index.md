@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Pigon - Scientific Library
 
 You can use the [editor on GitHub](https://github.com/bariscelik/pigon/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
