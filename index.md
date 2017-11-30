@@ -1,8 +1,5 @@
 Pigon is an open source C++ library for scientific purposes
 
-* TOC
-{:toc}
-
 # Introduction
 
 Pigon is contains some tools for mathematics and physics. Programming principle that behind of Pigon is quite simple. This is more like an API rather than a library. Readability
@@ -123,6 +120,17 @@ By Select::type
 ```cpp
 // row=All, col={0, 2}
 Matrix<float> m_sub = m(Select::All, {0, 2});
+```
+
+$$
+m\_sub=\begin{bmatrix} 1 & 5 \\ 2 & 6 \\ 4 & 7\end{bmatrix}
+$$
+
+For select only even columns
+
+```cpp
+// row=All, col={0, 2}
+Matrix<float> m_sub = m({1, 2}, Select::Even);
 ```
 
 $$
