@@ -79,6 +79,7 @@ Matrix<float> m = { {1, 3, 5},
                     {2, 5, 6},
                     {4, 8, 7} };
 ```
+
 $$
 M_{3x3}=\begin{bmatrix} 1 & 3 & 5 \\ 2 & 5 & 6 \\ 4 & 8 & 7 \end{bmatrix}
 $$
