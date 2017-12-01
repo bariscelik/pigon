@@ -7,7 +7,7 @@ option(BUILD_SHARED_LIBS "Build shared library" ON)
 option(BUILD_DOXYGEN "Build documentation" OFF)
 option(BUILD_TESTS "Build tests" OFF)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set (gtest_disable_pthreads on)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)
