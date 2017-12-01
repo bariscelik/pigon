@@ -1,4 +1,4 @@
-# Pigon - scientific toolbox
+# Pigon - scientific toolbox [![Build Status](https://travis-ci.org/bariscelik/pigon.svg?branch=master)](https://travis-ci.org/bariscelik/pigon)
 Pigon is an open source library for scientific purposes
 
 # Introduction
