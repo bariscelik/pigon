@@ -5,9 +5,9 @@ compiler:
 
 env:
   - BUILD_TYPE=Debug
+  - BUILD_TESTS=ON
   
 script:
-  - cd src
-  - cmake --build . --target install
-  - cd ../build/pigon/
+  - cmake --build . --target
+  - cd ../build/
   - make
