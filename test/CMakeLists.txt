@@ -10,6 +10,6 @@ config_compiler_and_linker()
 # PIGON
 include_directories("../src/")
 
-add_executable(${PROJECT_NAME} "main.cpp")
+add_executable(${PROJECT_NAME} "main.cpp" "matrix_test.h")
 
 target_link_libraries(${PROJECT_NAME} Pigon gtest gmock)

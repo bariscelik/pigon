@@ -2,10 +2,11 @@ cmake_minimum_required(VERSION 2.8)
 set(CMAKE_INSTALL_PREFIX "./")
 project(Pigon)
 
-add_library(${PROJECT_NAME} SHARED "pigon.cpp" "matrix.cpp" pigon.rc)
+set(PIGON_SOURCE_FILES "pigon.cpp"
+                       "matrix.cpp"
+                       "matrix.h"
+                       "pigon.h"
+                       pigon.rc
+                       "pigon_global.h")
 
-if(WIN32)
-    install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION "../../build/test/")
-else()
-    install(TARGETS ${PROJECT_NAME} LIBRARY DESTINATION "../../build/test/")
-endif()
+add_library(${PROJECT_NAME} SHARED ${PIGON_SOURCE_FILES})
