@@ -8,6 +8,6 @@ env:
   - BUILD_TESTS=ON
   
 script:
-  - cmake --build . --target
-  - cd ../build/
+  - cmake .
+  - cd ./build
   - make
