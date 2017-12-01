@@ -102,6 +102,21 @@ public:
             }
 
             self_type operator++(int) {return operator++();}
+            self_type operator+(int increment) {
+
+                int pos = _row * cols + _col + increment;
+
+                if(pos < rows*cols)
+                {
+                    _row = pos / cols;
+                    _col = pos - _row*cols;
+                }
+
+                return *this;
+            }
+            self_type operator-(int n) {
+                return operator+(-n);
+            }
             reference operator*() { return (*ptr_)[_row][_col]; }
             bool operator==(const self_type& rhs) { return _row == rhs._row && _col == rhs._col; }
             bool operator!=(const self_type& rhs) { return _row != rhs._row || _col != rhs._col || end != rhs.end; }

@@ -243,12 +243,18 @@ TEST(COMMON, ALL)
     EXPECT_EQ(23, m[2][4]);
 
 
-    // **** OUT OF RANGE **** //
+
     Matrixf m3(2,3);
     //std::cout << m3(0,2) << std::endl;
 
     m3.at(0,0) = 15;
     std::cout << m3 << std::endl;
+
+
+    for(Matrix<float>::iterator i = m.begin(); i != m.begin() + 5; i++)    {
+        std::cout << *i << std::endl;  // prints d.
+    }
+
 }
 
 TEST(COMMON, SELECT)
