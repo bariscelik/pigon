@@ -20,10 +20,10 @@ add_subdirectory(src)
 
 if(BUILD_TESTS)
     add_subdirectory(test)
+    add_dependencies (pigon_test Pigon)
 endif(BUILD_TESTS)
 
 if(BUILD_DOXYGEN)
     add_subdirectory(docs)
 endif(BUILD_DOXYGEN)
 
-add_dependencies (pigon_test Pigon)
