@@ -272,10 +272,30 @@ std::vector<typename Matrix<T>::m_index> Matrix<T>::find(T num)
 {
     std::vector<typename Matrix<T>::m_index> r;
 
-    for(Matrix<T>::iterator it = begin(); it != end(); it++)
+    // iterator begin
+    Matrix<T>::iterator it = begin();
+
+    // iterator end
+    Matrix<T>::iterator it_e = end();
+
+    for(; it != it_e; it++)
     {
         if(std::abs(*it - num) < static_cast<T>(TOLERANCE))
             r.push_back(it.index());
+    }
+
+    return r;
+}
+
+template<typename T>
+std::vector<typename Matrix<T>::m_index> Matrix<T>::find(T num, iterator b, iterator e)
+{
+    std::vector<typename Matrix<T>::m_index> r;
+
+    for(; b != e; b++)
+    {
+        if(std::abs(*b - num) < static_cast<T>(TOLERANCE))
+            r.push_back(b.index());
     }
 
     return r;

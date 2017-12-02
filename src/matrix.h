@@ -36,7 +36,7 @@ template<typename T = float> class PIGONSHARED_EXPORT Matrix
 
 public:
 
-    Matrix(size_t r=3, size_t c=2,MatrixType mt = MatrixType::Custom, const T initValue = 0);
+    Matrix(size_t r=3, size_t c=2, MatrixType mt = MatrixType::Custom, const T initValue = 0);
     Matrix(std::initializer_list<std::initializer_list<T>> iList);
     ~Matrix();
 
@@ -44,7 +44,7 @@ public:
     /**
      * @brief tolerance value for floating-point comparison
      */
-    T TOLERANCE = 1e-10;
+    T TOLERANCE = 1e-1;
 
     /**
      * @brief Matrix index
@@ -237,16 +237,25 @@ public:
     void normalize();
 
     /**
-     * @brief shuffle
+     * @brief Shuffles all elements by mt19937 random number generation algorithm
      */
     void shuffle();
 
     /**
      * @brief Find matched elements by given parameter.
-     * @param num
+     * @param num Number to find
      * @return Element indices as vector
      */
     std::vector<m_index> find(T num);
+
+    /**
+     * @brief Find matched elements by given parameter.
+     * @param num Number to find
+     * @param b range begin
+     * @param e range end
+     * @return Element indices as vector
+     */
+    std::vector<m_index> find(T num, iterator b, iterator e);
 
     /**
      * @brief Calculate inverse of matrix

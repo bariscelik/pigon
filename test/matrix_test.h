@@ -231,7 +231,8 @@ TEST(COMMON, ALL)
     Matrixf m2 = { {3, 5},
                    {7, 8} };
 
-    for(Matrix<float>::iterator i = m2.begin(); i != m2.end(); i++)    {
+    for(Matrix<float>::iterator i = m2.begin(); i != m2.end(); i++)
+    {
         std::cout << *i << std::endl;  // prints d.
     }
 
@@ -242,8 +243,6 @@ TEST(COMMON, ALL)
 
     EXPECT_EQ(23, m[2][4]);
 
-
-
     Matrixf m3(2,3);
     //std::cout << m3(0,2) << std::endl;
 
@@ -251,7 +250,8 @@ TEST(COMMON, ALL)
     std::cout << m3 << std::endl;
 
 
-    for(Matrix<float>::iterator i = m.begin(); i != m.begin() + 5; i++)    {
+    for(Matrix<float>::iterator i = m.begin(); i != m.begin() + 5; i++)
+    {
         std::cout << *i << std::endl;  // prints d.
     }
 
@@ -422,6 +422,37 @@ TEST(FUNCTIONS, UNIQUE)
     EXPECT_EQ(m1.unique(), res);
 }
 
+TEST(FUNCTIONS, FIND)
+{
+    Matrixf m = { {2, 6, 8},
+                   {6, 7, 3},
+                   {2, 1, 4} };
+
+
+    std::vector<Matrixf::m_index> r = m.find(2);
+
+    std::vector<Matrixf::m_index> r_data = {Matrixf::m_index{0,0}, Matrixf::m_index{2, 0}};
+
+    std::vector<Matrixf::m_index>::iterator i = r.begin();
+
+    std::vector<Matrixf::m_index>::iterator r_data_i = r_data.begin();
+
+    for(; r_data_i != r_data.end(); r_data_i++)    {
+        EXPECT_EQ((*i++).row, (*r_data_i).row);
+    }
+
+
+    std::vector<Matrixf::m_index> r_data_1 = {Matrixf::m_index{0,0}};
+
+    r = m.find(2, m.begin(), m.begin() + 6);
+    i = r.begin();
+    r_data_i = r_data_1.begin();
+
+    for(; i != r.end(); i++)    {
+        EXPECT_EQ((*i).row, (*r_data_i++).row);
+    }
+}
+
 TEST(FUNCTIONS, MIN)
 {
     Matrixf m1 = { {3, 5},
@@ -464,13 +495,10 @@ TEST(PERFORMANCE, TRANSPOSE)
 
 TEST(PERFORMANCE, RESIZE)
 {
-    Matrix<int> m1(2,2);
-    Matrix<int> m2(2,2);
-
-    m1[0][0] = 3;
-    m1[0][1] = 4;
-    m1[1][0] = 1;
-    m1[1][1] = 5;
+    Matrix<int> m1 = { {3, 4},
+                       {1, 5} };
+    Matrix<int> m2 = { {1, 3},
+                       {5, 6} };
 
     std::cout << "m1:\n" << m1 << std::endl;
 
@@ -478,10 +506,6 @@ TEST(PERFORMANCE, RESIZE)
 
     std::cout << "m1+3:\n" << m1 << std::endl;
 
-    m2[0][0] = 1;
-    m2[0][1] = 3;
-    m2[1][0] = 5;
-    m2[1][1] = 6;
 
     std::cout << "\nm2:\n" << m2 << std::endl;
 
