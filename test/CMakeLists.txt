@@ -8,7 +8,7 @@ add_subdirectory(googletest-release-1.8.0)
 config_compiler_and_linker()
 
 # PIGON
-include_directories("../src/")
+include_directories(../include)
 
 add_executable(${PROJECT_NAME} "main.cpp" "matrix_test.h")
 

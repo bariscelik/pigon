@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "pigon.h"
+#include "pigon/pigon.h"
 namespace Pigon{
 Pigon::Pigon()
 {

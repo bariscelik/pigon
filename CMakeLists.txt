@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 2.8)
 
 include(GNUInstallDirs)
 
+
 option(BUILD_SHARED_LIBS "Build shared library" ON)
 option(BUILD_DOXYGEN "Build documentation" OFF)
 option(BUILD_TESTS "Build tests" OFF)

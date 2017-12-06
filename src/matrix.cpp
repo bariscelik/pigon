@@ -1,4 +1,4 @@
-#include "matrix.h"
+#include "pigon/matrix.h"
 #include <tuple>
 #include <chrono>
 #include <thread>
