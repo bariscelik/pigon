@@ -4,10 +4,9 @@ project(Pigon)
 
 include_directories("../include")
 
-file(GLOB PIGON_SOURCE_FILES "pigon.rc"
+file(GLOB_RECURSE PIGON_SOURCE_FILES "pigon.rc"
                              "*.cpp"
-                             "../include/pigon/*.h"
-                             "../include/pigon/graphics/*.h")
+                             "../include/*.h")
 
 
 add_library(${PROJECT_NAME} SHARED ${PIGON_SOURCE_FILES})
