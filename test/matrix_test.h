@@ -101,6 +101,28 @@ TEST(OPERATOR, MULTIPLICATION)
     Matrixf mat2(2, 2, MatrixType::Custom, 5);
     Matrixf mat3(3, 2, MatrixType::Custom, 2);
 
+    Matrixd ms = {{2, 4, 1, 7},
+                  {3, 6, 2, 4},
+                  {3, 9, 5, 2},
+                  {2, 1, 4, 0}};
+
+
+    Matrixd ms2 = {{1, 5, 4, 3},
+                   {4, 7, 2, 1},
+                   {3, 2, 1, 2},
+                   {2, 9, 8, 1}};
+
+    Matrixd ms_data = {{35, 103, 73, 19},
+                       {41,  97, 58, 23},
+                       {58, 106, 51, 30},
+                       {18,  25, 14, 15}};
+
+    Matrixd ms_data2 = {{704, 1213, 571, 373},
+                        {649, 1207, 600, 359},
+                        {695, 1404, 735, 412},
+                        {190, 428, 256, 122}};
+
+
 
     Matrixf mat1_data(3, 2);
     Matrixf mat3_data(3, 2);
@@ -167,6 +189,20 @@ TEST(OPERATOR, MULTIPLICATION)
     for (size_t i=0;i<mat1.rows();i++) {
         for (size_t j=0;j<mat1.cols();j++) {
             EXPECT_EQ(mat1[i][j], mat3_data[i][j]);
+        }
+    }
+
+    ms *= ms2;
+    for (size_t i=0;i<ms.rows();i++) {
+        for (size_t j=0;j<ms.cols();j++) {
+            EXPECT_EQ(ms[i][j], ms_data[i][j]);
+        }
+    }
+
+    ms *= ms2;
+    for (size_t i=0;i<ms.rows();i++) {
+        for (size_t j=0;j<ms.cols();j++) {
+            EXPECT_EQ(ms[i][j], ms_data2[i][j]);
         }
     }
 }
@@ -467,6 +503,30 @@ TEST(FUNCTIONS, MAX)
                    {6, 7} };
 
     EXPECT_EQ(7, m1.at(m1.max()));
+}
+
+TEST(FUNCTIONS, INVERSE)
+{
+    Matrixf m = {{2, 5, 1, 2},
+                 {2, 3, 4, 9},
+                 {6, 9, 1, 7},
+                 {3, 5, 7, 8}};
+
+    Matrixf m_data = {{-0.822951, -0.413115,  0.432787, 0.291803 },
+                      { 0.527869,  0.101639, -0.154098, -0.111475 },
+                      {-0.065574, -0.180328, -0.049180, 0.262295 },
+                      { 0.036066,  0.249180, -0.022951, -0.144262 }};
+
+    Matrixf::iterator i_data = m_data.begin();
+
+    m.inverse();
+
+    std::cout << m << std::endl;
+
+    /*for(Matrix<float>::iterator i = m.begin(); i != m.end(); i++)    {
+       EXPECT_EQ(*i, *i_data);
+       i_data++;
+    }*/
 }
 
 TEST(GETTER, COMMON)

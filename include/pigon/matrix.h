@@ -346,7 +346,7 @@ typedef Matrix<double> Matrixd;
 #endif // MATRIX_H
 
 // TODO: Kütüphane dosyasına dahil edilecek
-std::ostream& operator<<(std::ostream &os, Pigon::Matrix<float> &m)
+inline std::ostream& operator<<(std::ostream &os, Pigon::Matrix<float> &m)
 {
     std::string s;
 
@@ -366,7 +366,27 @@ std::ostream& operator<<(std::ostream &os, Pigon::Matrix<float> &m)
     return os << s;
 };
 
-std::ostream& operator<<(std::ostream &os, Pigon::Matrix<int> &m)
+inline std::ostream& operator<<(std::ostream &os, Pigon::Matrix<double> &m)
+{
+    std::string s;
+
+    s.append("------------------------------------------------------------------------------------------\n");
+
+    for (size_t i=0;i<m.rows();i++) {
+        for (size_t j=0;j<m.cols();j++) {
+            s.append(std::to_string(m[i][j]) + " | ");
+        }
+        s.append("\n");
+    }
+
+    s.append("\nMatrix Size: " + std::to_string(m.rows()) + "x" + std::to_string(m.cols()));
+
+    s.append("\n------------------------------------------------------------------------------------------");
+
+    return os << s;
+};
+
+inline std::ostream& operator<<(std::ostream &os, Pigon::Matrix<int> &m)
 {
     std::string s;
 

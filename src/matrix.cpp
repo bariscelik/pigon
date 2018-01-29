@@ -105,11 +105,7 @@ void Matrix<T>::fill(MatrixType mt, const T val)
 
     default:
         std::fill(_m.begin(), _m.end(), std::vector<T>(_cols,val));
-
     }
-
-    std::fill(_m.begin(), _m.end(), std::vector<T>(_cols,val));
-
 }
 
 ///
@@ -303,7 +299,45 @@ std::vector<typename Matrix<T>::m_index> Matrix<T>::find(T num, iterator b, iter
 
 template<typename T>
 void Matrix<T>::inverse()
-{
+{/*
+    // 1/determinant of matrix
+    const T d = 1/determinant();
+*/
+
+    float d,k;
+
+    float b[4][4] = {{1,0,0,0},
+                     {0,1,0,0},
+                     {0,0,1,0},
+                     {0,0,0,1}};
+
+    for (int i = 0;i<4;i++) {
+        d = _m[i][i];
+
+        for (int j = 0;j<4;j++) {
+            _m[i][j] = _m[i][j] / d;
+            b[i][j] = b[i][j] / d;
+        }
+
+        for (int x = 0; x < 4; x++)
+        {
+            if(x!=i)
+            {
+                k = _m[x][i];
+                for (int j=0;j<4;j++) {
+                    _m[x][j] = _m[x][j] - _m[i][j] * k;
+                    b[x][j] = b[x][j] - b[i][j] * k;
+                }
+            }
+        }
+    }
+
+    for (int i = 0;i<4;i++) {
+        for (int j = 0;j<4;j++) {
+            _m[i][j] = b[i][j];
+        }
+    }
+
 
 }
 
